@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trier une liste</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Trier une liste</h1>
+        <form method="POST">
+            <input type="text" name="liste" placeholder="Entrez une liste de nombres séparés par des virgules" required>
+            <button type="submit">Trier</button>
+        </form>
+        {% if resultat is not none %}
+            <div class="result">
+                {% if resultat == "Erreur: Assurez-vous que tous les éléments de la liste sont des nombres entiers." %}
+                    {{ resultat }}
+                {% else %}
+                    Résultat: {{ resultat }}
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
